@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Casa Brasa | Cardápio</title>
+  <meta name="description" content="Conheça o cardápio completo: entradas, pratos principais, sobremesas e bebidas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Os dados ficam em data.js; a lógica em script.js -->
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
 
+  <a class="skip-link" href="#cardapio">Pular para o cardápio</a>
+
+  <header class="site-header" id="topo">
+    <div class="container site-header__inner">
+      <a class="brand" href="#topo" data-bind="name">Casa Brasa</a>
+      <nav aria-label="Principal">
+        <ul class="site-nav">
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="hero__media" aria-hidden="true">
+        <img id="hero-image" src="images/hero.jpg" alt="" fetchpriority="high">
+      </div>
+      <div class="container hero__inner">
+        <p class="hero__eyebrow anim-up">Cardápio</p>
+        <h1 id="hero-titulo" class="anim-up" style="--delay:.12s" data-bind="name">Casa Brasa</h1>
+        <p class="hero__tagline anim-up" style="--delay:.26s" data-bind="tagline">Cozinha de fogo, ingredientes da estação e mesa farta.</p>
+        <a class="btn anim-up" style="--delay:.4s" href="#cardapio">Ver pratos</a>
+      </div>
+      <a class="hero__cue" href="#cardapio" aria-label="Rolar para o cardápio"><span></span></a>
+    </section>
+
+    <!-- CARDÁPIO -->
+    <section class="menu" id="cardapio" aria-labelledby="cardapio-titulo">
+      <div class="menu__toolbar">
+        <div class="container">
+          <h2 class="visually-hidden" id="cardapio-titulo">Cardápio</h2>
+
+          <nav class="catnav" aria-label="Categorias do cardápio">
+            <ul id="catnav-list" class="catnav__list"></ul>
+          </nav>
+
+          <form class="filters" role="search" aria-label="Filtrar cardápio" onsubmit="return false">
+            <div class="filters__search">
+              <label class="visually-hidden" for="search">Buscar prato</label>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+              <input id="search" type="search" placeholder="Buscar prato ou ingrediente" autocomplete="off">
+            </div>
+            <ul class="filters__chips" id="chips" aria-label="Filtrar por restrição"></ul>
+          </form>
+        </div>
+      </div>
+
+      <div class="container">
+        <div id="menu-sections" aria-live="polite"></div>
+        <p class="empty" id="empty" hidden>Nenhum prato encontrado. Tente outra busca ou limpe os filtros.</p>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="about" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="container about__inner">
+        <figure class="about__media reveal">
+          <img id="about-image" src="images/sobre.jpg" alt="Ambiente do restaurante" loading="lazy">
+        </figure>
+        <div class="about__text reveal" style="--delay:.15s">
+          <p class="eyebrow">Nossa casa</p>
+          <h2 id="sobre-titulo" data-bind="aboutTitle">Uma casa feita para sentar e ficar</h2>
+          <p data-bind="aboutText">Conte aqui a história do restaurante.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="contato">
+    <div class="container">
+      <div class="site-footer__grid">
+        <section aria-labelledby="f-marca">
+          <h2 id="f-marca" class="site-footer__brand" data-bind="name">Casa Brasa</h2>
+          <p data-bind="tagline"></p>
+        </section>
+        <section aria-labelledby="f-end">
+          <h3 id="f-end">Endereço</h3>
+          <address data-bind="address">[SEU ENDEREÇO], [CIDADE - UF]</address>
+        </section>
+        <section aria-labelledby="f-hor">
+          <h3 id="f-hor">Horários</h3>
+          <p data-bind="hours">[DIAS]: [HH:MM - HH:MM]</p>
+        </section>
+        <section aria-labelledby="f-cont">
+          <h3 id="f-cont">Contato</h3>
+          <p data-bind="phone">[TELEFONE]</p>
+          <a class="btn btn--small" id="whatsapp" href="#" hidden target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        </section>
+      </div>
+      <p class="site-footer__copy"><small>© <time id="year" datetime="2026">2026</time> <span data-bind="name"></span>. Todos os direitos reservados.</small></p>
+    </div>
+  </footer>
+
+  <!-- Detalhe do prato -->
+  <dialog id="dish-dialog" class="dialog" aria-labelledby="dialog-title">
+    <article class="dialog__card">
+      <button class="dialog__close" type="button" id="dialog-close" aria-label="Fechar">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <figure class="dialog__media"><img id="dialog-image" src="" alt=""></figure>
+      <div class="dialog__body">
+        <h2 id="dialog-title"></h2>
+        <ul class="tags" id="dialog-tags"></ul>
+        <p id="dialog-desc"></p>
+        <p class="dialog__details" id="dialog-details"></p>
+        <p class="dialog__price" id="dialog-price"></p>
+      </div>
+    </article>
+  </dialog>
+
+</body>
+</html>

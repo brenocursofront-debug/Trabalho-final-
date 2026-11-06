@@ -1,0 +1,23 @@
+PASTA DE IMAGENS
+================
+
+Coloque aqui as fotos do seu restaurante. O nome do arquivo precisa ser
+igual ao usado no campo "image" do arquivo data.js.
+
+Arquivos que o exemplo espera:
+
+  hero.jpg          foto grande do topo do site (formato horizontal, ~1920x1080)
+  sobre.jpg         foto da seção "Sobre" (ambiente, cozinha, fachada)
+
+  bruschetta.jpg    carpaccio.jpg     burrata.jpg
+  risoto.jpg        file.jpg          salmao.jpg        massa.jpg
+  petit-gateau.jpg  tiramisu.jpg      cheesecake.jpg
+  limonada.jpg      suco.jpg          caipirinha.jpg
+
+Dicas:
+- Fotos dos pratos ficam melhores na proporção 4:3 (ex.: 1200x900).
+- Prefira JPG ou WebP, com no máximo ~300 KB cada, para o site carregar rápido.
+- Enquanto uma foto não estiver na pasta, o site mostra uma imagem de reserva
+  (o layout não quebra).
+- Para adicionar um prato novo: copie um bloco de item em data.js, troque os
+  textos e o nome da imagem, e coloque a foto aqui.
